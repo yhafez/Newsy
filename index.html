@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css"/> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script defer src="app.js"></script> 
+
+    <title>Newzy</title>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <img id='logo' src='./logo.png'/>
+        <i class='material-icons' id='gear'>settings</i>
+        <i class='material-icons' id='home'>home</i>
+        <h2 id='sub-heading'><span class='sub-text'>☕😌</span> A news search engine <span class='sub-text'>where the tea is always hot</span> <span class='sub-text'>😌☕</span></h2>
+
+        <div id='basic-div'>
+            <form id='basic-search'>
+                <input class='search' type='text' placeholder="What are you feeling NEWZY about? 👀">
+                <button class='submit' id='basic-submit'>Search</button>
+                <p id='adv-link'>Advanced Search</p>
+            </form>
+        </div>
+
+
+        <div id='default-preferences'>
+            <form>
+                <h3 id='def-pref-title'>Default Preferences</h3>
+
+                <label for='language'>Language: </label>
+                <br>
+                <select id='language' name='language'></select>
+                <br>
+                <label for='region'>Region: </label>
+                <br>
+                <select id='region' name='region'></select>
+                <br>
+                <button id='def-pref-submit'>Submit</button>
+
+                <p id='def-text'>(You can click on the gear icon on the top-right if you change your mind later!)</p>
+            </form>
+        </div>
+
+
+        <div id='adv-div'>
+            <h2 id='adv-header'>Advanced Search</h2>
+            <input class='search' id='adv-search' type='text' placeholder="Keywords">
+            <p id='basic-link'>Basic Search</p>
+            <form id='advanced-search'>
+                
+                <div>
+                    <label for='start-date'>Start-Date: </label>
+                    <br>
+                    <input type='date' class='search-opt' id='start-date' name='start-date'>
+                    <br>
+                    <label for='end-date'>End-Date </label>
+                    <br>
+                    <input type='date' class='search-opt' id='end-date' name='end-date'>
+                    <br>
+                </div>
+
+                <div>
+                    <label for='domain-is'>Domain is: </label>
+                    <br>
+                    <input type='text' class='search-opt' id='domain-is' name='domain-is' placeholder='Format: "huffpost.com"'>
+                    <br>
+                    <label for='domain-not'>Domain is not: </label>
+                    <br>
+                    <input type='text' class='search-opt' id='domain-not' name='domain-not' placeholder='Format: "nytimes.com"'>
+                    <br>
+                </div>
+
+                <div>
+                    <label for='category'>Category: </label>
+                    <br>
+                    <select class='search-opt' id='category' name='category'></select>
+                    <br>
+                    <button class='submit' id='adv-submit'>Search</button>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </header>
+    
+    
+    <main>
+
+        <div id='app'>
+
+            <section id='welcome'>
+                <h2 id='defn'>New·zy&ensp;<span id='pronunciation'>/n(y)o͞ozē/</span></h2>
+                <h3 class='sent-part'>adjective</h3>
+                <p class='definition'>
+                    A <a href='https://www.urbandictionary.com/define.php?term=punny'>punny</a> play on the words "news" and "nosy"</p>
+                <p class='example'>
+                    "I absolutely have to find out the latest <a href='https://www.urbandictionary.com/define.php?term=Chisme'>chisme</a> about Yahya's tech journey. I can't help being so newzy, I just NEED the <a href='https://www.urbandictionary.com/define.php?term=tea'>tea</a>!! <span class='emoji'>😩</span>"</p>
+                <h3 class='sent-part'>noun</h3>
+                <p class='definition'>
+                    A stellar web application, built by technical wiz and up-and-coming web developer <a href='https://infallible-poitras-4a35ef.netlify.com/'>Yahya Hafez</a>, which allows users to search the interwebs for the latest news and gossip.</p>
+                <p class='example'>
+                    "To use Newzy, the hottest news serch app on the market, all you have to do is type your search into the textbox and click send.<br>You can view the full page of a result by clicking its title to open it in a new tab.<br>If you'd like to narrow your search by category, date, or domain, try the advanced search option. You can always change your language and region settings by clicking the gear icon on the top right.<br> Once you enter your search, Newzy gives you options to further filter your search results, search a category tag of a result with a simple click, view the full article in a new tab, or start a new search, all from the results page!<br>To view the latest news in general, just leave the search bar empty and hit 'search'!"</p>
+            </section>
+
+            <div id="loading">
+                <h2 class="message">Searching...</h2>
+              </div>
+
+            <div id='loading-screen'>
+                
+            </div>
+            <button id='back'><i class='material-icons' id='back-icon'>arrow_back</i>Previous</button>
+            <button id='forward'>Next<i class="material-icons" id='forward-icon'>arrow_forward</i></button>
+            <section id='results'>
+                
+                </>
+
+                
+            </section>
+
+
+        </div>
+
+    </main>
+    
+</body>
+
+</html>

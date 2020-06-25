@@ -1,0 +1,567 @@
+/* -------------------------------------------------------------------------------------- Globals -------------------------------------------------------------------------------------- */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    background: url(./texture.jpg);
+    background-size: cover;
+}
+
+header {
+    text-align: center;
+    font-size: 4rem;
+}
+
+select {
+    border: 2px solid rgba(219,177,59, 95%);
+    font-size: calc(0.5rem + 1vw);
+    margin-bottom: 2.5rem;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+#app {
+    margin: auto;
+    width: 62vw;
+    padding: 3rem;
+}
+
+
+/* ---------------------------------------------------------------------------------- Material Icons ---------------------------------------------------------------------------------- */
+
+
+#gear {
+    font-size: calc(1rem + 2vw);
+    position: absolute;
+    left: 95vw;
+    top: 2vh;
+}
+
+#home {
+    display: none;
+    font-size: calc(1rem + 2vw);
+    position: absolute;
+    left: 95vw;
+    top: 6vw;
+    cursor: pointer;
+}
+
+#back, #forward {
+    font-size: calc(0.5rem + 1vw);
+    position: relative;
+    border: 2px solid rgba(219,177,59, 95%);
+    background-color: rgba(90,183,167, 90%);
+    border-radius: 15%;
+    padding: 0.6vw;
+}
+
+#back {
+    left: 9vw;
+    display: none;
+}
+
+#forward {
+    left: 36vw;
+    display: none;
+}
+
+#forward-icon, #back-icon{
+    font-size: calc(0.5rem + 1vw);
+    text-align: center;
+}
+
+#gear:hover, #home:hover #back:hover #forward:hover{
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------------------------------------------------ Basic Search ------------------------------------------------------------------------------------ */
+
+
+#logo {
+    width: calc(5rem + 50vw);
+    margin-top: 3rem;
+}
+
+#sub-heading{
+    font-size: calc(1rem + 2.5vw);
+    text-shadow: 0 0 2px rgba(219,177,59, 95%);
+    margin-top: 1rem;
+}
+
+.search {
+    padding: 1.5rem 5rem;
+    border: 2px solid rgba(219,177,59, 95%);
+    width: calc(2rem + 50vw);
+    font-size: 2rem;
+    border-radius: 3%;
+    margin-top: 1.5rem;
+    background: rgba(255,255,255, 70%);
+}
+
+.submit {
+    padding: 1vw 1vw;
+    border: 2px solid rgba(219,177,59, 95%);
+    background-color: rgba(90,183,167, 90%);
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    border-radius: 15%;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+
+/* -------------------------------------------------------------------------------------- Welcome -------------------------------------------------------------------------------------- */
+
+
+#welcome {
+    padding: 2rem;
+    margin-top: 1rem;
+    background-color: rgba(90,183,167, 80%);
+    box-shadow: 0 0 8px rgba(219,177,59, 95%);
+}
+
+#defn {
+    font-size: 3.5rem;
+}
+
+#pronunciation {
+    font-size: 3.5rem;
+}
+
+.sent-part {
+    font-style: italic;
+    font-size: 2.5rem;
+}
+
+.definition {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+}
+
+.example {
+    margin-left: 3rem;
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+    padding: 1rem 0;
+    font-style: italic;
+    text-shadow: 0 0 0.5px white;
+}
+
+.emoji {
+    font-style: normal;
+    font-size: 1.8rem;
+}
+
+
+/* -------------------------------------------------------------------------------------- Results -------------------------------------------------------------------------------------- */
+
+
+.news-card {
+    font-size: 1.5rem;
+    margin: 3rem auto 0 auto;
+    padding: 3rem;
+    width: 40vw;
+    background-color: rgba(90,183,167, 80%);
+    border: solid 2px rgba(219,177,59, 95%);
+    box-shadow: 0 0 10px black;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.card-author {
+    border-bottom: 3px solid rgba(219,177,59);
+    padding-bottom: 0.5rem;
+}
+
+.card-date {
+    padding-top: 0.5rem;
+}
+
+.card-author, .card-category {
+    text-transform: capitalize;
+}
+
+.card-category {
+    font-size: 1.4rem;
+    color: grey;
+}
+
+.card-cat-text:hover {
+    cursor: pointer;
+}
+
+.card-image {
+    max-width: 30vw;
+    margin: 2rem auto 0 auto;
+    height: auto;
+}
+
+.card-description {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card-head {
+    display: flex;
+}
+
+.card-sub{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.news-title a {
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.news-title a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------------------ Default Preferences Modal ------------------------------------------------------------------------------ */
+
+#default-preferences {
+    border: 1px black solid;
+    max-width: calc(2rem + 35vw);
+    position: fixed;
+    left: calc(50vw - (2rem + 35vw)/2.2);
+    bottom: 20vh;
+    background-color: rgba(175,237,238, 95%);
+    padding: 5rem;
+    border-radius: 5%;
+    display: none;
+    box-shadow: 0 0 8px rgba(219,177,59, 95%);
+    font-size: calc(1rem + 2vw);
+}
+
+#def-pref-submit {
+    padding: 1rem;
+    border-radius: 25%;
+    border: 2px solid rgba(90,183,167, 90%);
+    background-color: rgba(219,177,59, 65%);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+#def-pref-title {
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 4px white;
+}
+
+#def-text {
+    font-size: 1.5rem;
+    color: grey;
+    text-shadow: 0 0 0.5px white;
+}
+
+/* --------------------------------------------------------------------------------- Advanced Search --------------------------------------------------------------------------------- */
+
+
+#adv-div {
+    display: none;
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: rgba(90,183,167, 80%);
+    box-shadow: 0 0 8px rgba(219,177,59, 95%);
+    width: 58.5vw;
+    margin: 2.5rem auto 2rem auto;
+}
+
+#adv-header {
+    font-size: 4rem;
+}
+
+#advanced-search {
+    display: flex;
+    justify-content: space-around;
+}
+
+#advanced-search div {
+    margin-left: 2rem;
+}
+
+#advanced-search div:first-of-type {
+    margin-left: 0;
+}
+
+#advanced-search label {
+    font-size: 2rem;
+}
+
+.search-opt {
+    border: 2px solid rgba(219,177,59, 95%);
+    font-size: 1.2vw;
+    width: 15vw;
+}
+
+#category {
+    text-transform: capitalize;
+    margin-top: -3rem;
+    margin-bottom: 2rem;
+}
+
+#adv-link {
+    padding-bottom: 1.5rem;
+}
+
+#basic-link, #adv-link {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: blue;
+}
+
+#basic-link:hover, #adv-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#start-date:hover, #end-date:hover, #category {
+    
+    cursor: pointer;
+}
+
+#adv-div .submit {
+    background-color: rgba(255,255,255, 50%);
+}
+
+#domain-is, #domain-not {
+    padding: 0.4rem 0;
+}
+
+
+/* -------------------------------------------------------------------------------------- Loading -------------------------------------------------------------------------------------- */
+
+
+#loading {
+    position: fixed;
+  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.4);
+  
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+
+    display: none;
+}
+  
+#loading .message {
+    min-width: 480px;
+    padding: 3rem;
+  
+    box-shadow: 0 2px 8px #3CAEA3;
+    background: white;
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+#loading:not(.active) {
+    display: none;
+}
+
+
+/* ------------------------------------------------------------------------------------ Media Queries ------------------------------------------------------------------------------------ */
+
+
+@media (max-width: 1350px) {
+
+    #default-preferences {
+        left: calc(50vw - (2rem + 35vw)/2);
+    }
+
+    #forward {
+        left: 33vw;
+    }
+
+}
+
+@media (max-width: 950px) {
+    
+    #logo {
+        
+        margin-left: -4rem;
+    }
+
+    .search {
+        margin-top: 0;
+    }
+
+
+    .submit {
+        margin-top: 0;
+    };
+    
+    #pronunciation {
+        display: block;
+    }
+
+    .sub-text {
+        display: block;
+    }
+
+    #app {
+        width: 85vw;
+        padding: 3rem;
+    }
+
+    .search {
+        font-size: 1.5rem;
+    }
+
+    #def-pref-submit {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    #default-preferences {
+        max-width: calc(2rem + 50vw);
+        left: calc(50vw - (2rem + 35vw)/1.4);
+        font-size: calc(1rem + 2vw);
+        padding: 3rem;
+        bottom: 25vh
+    }
+
+    #forward {
+        left: 53vw;
+    }
+
+    #back {
+        left: 9vw
+    }
+
+    .news-card {
+        width: 60vw;
+    }
+
+    .card-sub{
+        flex-direction: row;
+        text-align: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+    .card-head {
+        flex-direction: column;
+    }
+
+    .card-author {
+        border-bottom: none;
+        border-right: 0;
+    }
+    /* //-------------------------------- */
+    #adv-header {
+        font-size: 3rem;
+    }
+    
+    #advanced-search div {
+        margin-left: 0rem;
+    }
+    
+    #advanced-search label {
+        font-size: 1.5rem;
+    }
+    
+    .search-opt {
+        font-size: 1.8vw;
+        width: 20vw;
+    }
+
+    #adv-div {
+        width: 80vw;
+    }
+    
+    #adv-submit {
+        margin-top: 2rem;
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    #gear {
+        font-size: calc(1rem + 2vw);
+        position: absolute;
+        left: 95vw;
+        top: 2vh;
+    }
+
+    #home {
+        font-size: calc(1rem + 2vw);
+        position: absolute;
+        left: 95vw;
+        top: 6vh;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    #logo {
+        margin-left: 0;
+    }
+
+    .search {
+        margin: 0 auto;
+        font-size: 1.1rem;
+        width: calc(2rem + 60vw);
+    }
+    
+    .submit {
+        display: inline;
+    }
+
+    #gear {
+        font-size: calc(1rem + 4vw);
+        position: absolute;
+        left: 90vw;
+        top: 4vh;
+    }
+
+    #home {
+        font-size: calc(1rem + 4vw);
+        position: absolute;
+        left: 4.5vw;
+        top: 4vw;
+    }
+    #forward {
+        left: 49vw;
+    }
+
+    #back {
+        left: 7vw
+    }
+
+}
