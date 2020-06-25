@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------Global Variables-----------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------Global Variables-------------------------------------------------------------------*/
 
 const doc = $(document);
 const app = $('#app');
@@ -28,7 +28,7 @@ async function fetchJson (url) {
 }
 
 
-/*---------------------------------------------------------------------------------Functions---------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------- Functions -----------------------------------------------------------------------*/
 
 
 async function fetchLangs() {
@@ -227,7 +227,6 @@ function addDomainIsNotStr(base, domain) {return base + `&domain_not=${ domain }
 function addCategoryStr(base, category) {return base + `&category=${ category }`}
 
 
-//
 async function getTotalPages(url) {
     let pageNum = 1;
     let count = 1;
@@ -240,17 +239,18 @@ async function getTotalPages(url) {
     return count;
 }
 
-function buildFilterList() {
 
-
-
+//Displays loading screen
+function onFetchStart() {
+    $('#loading').css('display', 'initial');
+    $('#loading').addClass('active');
 }
-
-
-function calcTotalResults() {
-
-
-
+  
+  
+//Hides loading screen
+function onFetchEnd() {
+$('#loading').removeClass('active');
+$('#loading').css('display', 'none');
 }
 
 
@@ -268,7 +268,7 @@ function bootstrap () {
 }
 
 
-/*------------------------------------------------------------------------------Event Handlers------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------- Event Handlers --------------------------------------------------------------------*/
 
 
 //Click handler to enable submit button for default preferences form
@@ -302,7 +302,7 @@ $('#gear').click(() => {
 })
 
 
-//Clik handler for search button in basic
+//Clik handler for search button in basic search
 $('#basic-submit').click(async (event) => {
     
     event.preventDefault();
@@ -345,7 +345,7 @@ $('#basic-submit').click(async (event) => {
 })
 
 
-//Add styling to categories in search results on hover
+//Adds styling to categories in search results on hover
 $('#app').on('mouseenter', '.card-cat-text', (event) => {
     $(event.target).css({
         'color': 'blue',
@@ -353,6 +353,7 @@ $('#app').on('mouseenter', '.card-cat-text', (event) => {
         'cursor': 'pointer'
     })
 })
+
 
 //Remove styling from categories in search results on hover-leave
 $('#app').on('mouseleave', '.card-cat-text', (event) => {
@@ -400,7 +401,8 @@ $('#home').click(() => {
 
 })
 
-//Click handler for search button in advanced
+
+//Click handler for search button in advanced search
 $('#adv-submit').click(async (event) => {
     
     event.preventDefault();
@@ -470,28 +472,7 @@ $('#adv-submit').click(async (event) => {
 })
 
 
-//Page forward click handlers
 
-
-
-//Page backward click handler
-
-
-
-/*------------------------------------------------------------------------------Runtime Code------------------------------------------------------------------------------*/
-
-
-//Displays loading screen
-function onFetchStart() {
-    $('#loading').css('display', 'initial');
-    $('#loading').addClass('active');
-}
-  
-  
-//Hides loading screen
-function onFetchEnd() {
-$('#loading').removeClass('active');
-$('#loading').css('display', 'none');
-}
+/*-------------------------------------------------------------------- Runtime Code --------------------------------------------------------------------*/
 
 bootstrap();
